@@ -1,0 +1,489 @@
+*
+  padding: 0
+  margin: 0
+  font-family: sans-serif
+  box-sizing: border-box
+
+:root
+  --main-color: #2DCC70
+  --dim-color: #777
+  --light-color: white
+  --light-background-color: white
+  --dark-background-color: #EEE
+  --header-background-color: rgba(0, 0, 0, .5)
+  --nav-background-color: #283232
+  --footer-color: #999
+  --contact-me-background-color: #333
+  --footer-background-color: black
+.dark-theme
+  --main-color: #2DCC70
+  --dim-color: white
+  --light-color: #fff
+  --light-background-color: black
+  --dark-background-color: #222
+  --header-background-color: rgba(0, 0, 0, .5)
+  --nav-background-color: black
+  --footer-color: wheat
+  --contact-me-background-color: #111
+  --footer-background-color: black
+
+html
+  scroll-behavior: smooth
+.container
+  width: 1200px
+  margin: auto
+  @media (max-width: 1250px)
+    width: 900px
+  @media (max-width: 1000px)
+    width: 700px
+  @media (max-width: 800px)
+    width: 550px
+  @media (max-width: 650px)
+    width: 450px
+  @media (max-width: 500px)
+    width: 80%
+
+/* Start Header */
+header
+  width: 100%
+  height: 100vh
+  background: linear-gradient(var(--header-background-color), var(--header-background-color)), url(../images/header.jpg) center/cover no-repeat
+  display: flex
+  justify-content: center
+  align-items: center
+  text-align: center
+  .header-box
+    h1
+      padding: 5px
+      color: var(--light-color)
+      text-transform: capitalize
+      border-top: 4px solid var(--light-color)
+      border-bottom: 4px solid var(--light-color)
+      font-size: 50px
+    button
+      padding: 10px 20px
+      margin-top: 30px
+      background: none
+      color: var(--light-color)
+      border: 2px solid var(--light-color)
+      text-transform: capitalize
+      font-size: 20px
+      font-weight: bold
+      cursor: pointer
+/* End Header */
+
+/* Start Navbar */
+nav
+  background-color: var(--nav-background-color)
+  position: sticky
+  top: 0
+  z-index: 5
+  .nav-box
+    padding: 20px 0
+    color: var(--light-color)
+    display: flex
+    justify-content: space-between
+    > a
+      color: white
+      font-size: 22px
+      text-decoration: none
+      position: relative
+      img
+        width: 22px
+      span
+        width: 20px
+        height: 100%
+        color: var(--main-color)
+    ul
+      margin-right: 20px
+      text-transform: capitalize
+      list-style: none
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      gap: 0 20px
+      flex: 1
+      @media (max-width: 800px)
+        display: none
+      li
+        a
+          text-decoration: none
+          color: var(--light-color)
+        &.active, &:hover
+          a
+            color: var(--main-color)
+    .dark-theme
+      width: 25px
+      height: 25px
+      background-color: var(--main-color)
+      border-radius: 5px
+      overflow: hidden
+      cursor: pointer
+      display: flex
+      justify-content: center
+      align-items: center
+      transform: translate(0)
+      .sun
+        width: 50%
+        height: 50%
+        background-color: white
+        border: 1px solid var(--main-color)
+        border-radius: 50%
+        position: relative
+        &::before
+          content: ""
+          width: 100%
+          height: 100%
+          background-color: var(--main-color)
+          border-radius: 50%
+          transition: .5s
+          position: absolute
+          top: -100%
+          right: -100%
+        div
+          height: 1px
+          background-color: white
+          transition: .5s
+          position: absolute
+          left: 50%
+          top: 50%
+          z-index: -1
+          &:nth-child(1)
+            width: 20px
+            transform: translate(-50%, -50%)
+          &:nth-child(2)
+            width: 18px
+            transform: translate(-50%, -50%) rotate(45deg)
+          &:nth-child(3)
+            width: 20px
+            transform: translate(-50%, -50%) rotate(90deg)
+          &:nth-child(4)
+            width: 18px
+            transform: translate(-50%, -50%) rotate(-45deg)
+      &.night .sun
+        div
+          width: 0 !important
+        &::before
+          top: -2px
+          right: -2px
+/* End Navbar */
+
+/* Start Features */
+.features
+  padding-top: 30px
+  padding-bottom: 50px
+  background-color: var(--light-background-color)
+  .features-box
+    display: flex
+    @media (max-width: 1250px)
+      flex-wrap: wrap
+    .features-content
+      h2
+        padding: 20px 0
+        font-size: 30px
+        text-transform: capitalize
+        color: var(--main-color)
+      p
+        color: var(--dim-color)
+        margin-bottom: 0
+        line-height: 1.7
+/* End Features */
+
+/* Start About Us */
+.about-us
+  background-color: var(--dark-background-color)
+  .about-us-box
+    display: flex
+    justify-content: center
+    @media (max-width: 1250px)
+      display: block
+    .image
+      flex-basis: 40%
+      @media (max-width: 1250px)
+        display: none
+      img
+        width: 100%
+        height: 100%
+    .content
+      flex-basis: 60%
+      padding: 30px 0 50px 30px
+      color: var(--dim-color)
+      h2
+        padding-bottom: 20px
+      p
+        margin-bottom: 25px
+        line-height: 1.7
+      .work
+        display: flex
+        justify-content: space-around
+        flex-wrap: wrap
+        row-gap: 40px
+        @media (max-width: 800px)
+          display: block
+        .work-item
+          display: flex
+          justify-content: space-between
+          align-items: center
+          flex-basis: 40%
+          column-gap: 20px
+          @media (max-width: 800px)
+            margin-bottom: 30px
+          .icon
+            color: var(--main-color)
+            @media (max-width: 800px)
+              display: none
+          .item-title
+            h3
+              margin-bottom: 10px
+            p
+              margin-bottom: 0
+/* End About Us */
+
+/* Start Skills */
+.skills
+  padding-top: 30px
+  padding-bottom: 50px
+  background-color: var(--light-background-color)
+  .skills-box
+    display: flex
+    justify-content: center
+    column-gap: 50px
+    @media (max-width: 1250px)
+      display: block
+    .my-skills
+      flex-basis: 60%
+      color: var(--dim-color)
+      h2
+        padding-bottom: 20px
+      p
+        margin-bottom: 25px
+        line-height: 1.7
+      button
+        display: block
+        padding: 10px 20px
+        margin: 0 auto
+        background: none
+        color: var(--main-color)
+        border: 3px solid var(--main-color)
+        border-radius: 10px
+        font-size: 20px
+        font-weight: bold
+        cursor: pointer
+    .progress
+      flex-basis: 35%
+      .skill-content
+        h3
+          margin-top: 20px
+          margin-bottom: 10px
+          color: var(--dim-color)
+        .tray
+          width: 100%
+          background-color: var(--background-color)
+          span
+            display: block
+            width: 0
+            padding: 3px 10px
+            background-color: var(--main-color)
+            font-weight: bold
+            color: var(--light-color)
+            text-align: right
+            transition: width 3s
+            &::after
+              content: "%"
+/* End Skills */
+
+/* Start Resume */
+.resume
+  padding-top: 30px
+  padding-bottom: 50px
+  background-color: var(--dark-background-color)
+  .resume-box
+    color: var(--dim-color)
+    text-align: center
+    h2
+      margin: 30px
+    p
+      line-height: 1.7
+    button
+      display: block
+      padding: 10px 20px
+      margin: 30px auto 0
+      background: none
+      color: var(--main-color)
+      border: 3px solid var(--main-color)
+      border-radius: 10px
+      font-size: 20px
+      font-weight: bold
+      cursor: pointer
+/* End Resume */
+
+/* Start My Education */
+.my-education
+  padding-top: 30px
+  padding-bottom: 50px
+  background-color: var(--light-background-color)
+  .my-education-box
+    margin-top: 50px
+    color: var(--dim-color)
+    display: flex
+    gap: 20px
+    @media (max-width: 1250px)
+      display: block
+    h2
+      padding-bottom: 20px
+    p
+      margin-bottom: 25px
+      line-height: 1.7
+  .my-education-content
+    h3
+      margin-bottom: 20px
+    span
+      margin-bottom: 20px
+      display: block
+      &:last-of-type
+        width: fit-content
+        padding: 5px 10px
+        background-color: var(--main-color)
+        color: var(--light-color)
+        font-weight: bold
+    p
+      margin: 20px 20px 50px
+/* End My Education */
+
+/* Start Testemonials */
+.testemonials
+  padding-top: 30px
+  padding-bottom: 50px
+  background-color: var(--dark-background-color)
+  color: var(--dim-color)
+  text-align: center
+  font-size: 20px
+  .testemonials-box
+    display: none
+    &.active
+      display: block
+    p
+      font-weight: bold
+      font-style: italic    
+      line-height: 1.7
+      text-transform: capitalize
+    h3
+      margin: 30px
+      text-transform: uppercase
+  ul
+    display: flex
+    justify-content: center
+    column-gap: 10px
+    list-style: none
+    li
+      display: block
+      width: 20px
+      height: 20px
+      border: 2px solid var(--main-color)
+      border-radius: 50%
+      cursor: pointer
+      &.active, &:hover
+        background-color: var(--main-color)
+/* End Testemonials */
+
+/* Start Portfolio */
+.portfolio
+  padding-top: 30px
+  padding-bottom: 50px
+  background-color: var(--light-background-color)
+  .portfolio-box
+    color: var(--dim-color)
+    text-align: center
+    h2
+      padding-bottom: 20px
+    p
+      margin-bottom: 25px
+      line-height: 1.7
+  .images
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    gap: 20px
+    div
+      flex-basis: 23%
+      padding: 3px
+      border: 1px solid var(--dim-color)
+      overflow: hidden
+      @media (max-width: 1250px)
+        flex-basis: 30%
+      @media (max-width: 800px)
+        flex-basis: 44%
+      @media (max-width: 650px)
+        flex-basis: 90%
+      img
+        width: 100%
+        height: 100%
+        transition: .5s
+      &:hover img
+        transform: scale(1.2) rotate(-5deg)
+/* End Portfolio */
+
+/* Start Contact Me */
+.contact-me
+  padding-top: 30px
+  padding-bottom: 50px
+  background-color: var(--contact-me-background-color)
+  .contact-me-box
+    display: flex
+    justify-content: space-around
+    @media (max-width: 1250px)
+      display: block
+    .title
+      flex-basis: 45%
+      h2
+        padding-top: 20px
+        padding-bottom: 20px
+        color: white
+      p
+        margin-bottom: 20px
+        color: var(--dim-color)
+        line-height: 1.7
+        strong
+          color: white
+    .contact-me-form
+      flex-basis: 30%
+      input, textarea
+        display: block
+        width: 100%
+        padding: 10px
+        margin-bottom: 5px
+        background: none
+        color: white
+        border: 2px solid var(--dim-color)
+        outline: none
+        font-size: 18px
+      textarea
+        resize: none
+      input:last-child
+        cursor: pointer
+/* End Contact Me */
+
+/* Start Footer */
+.footer
+  padding: 10px
+  background-color: var(--footer-background-color)
+  .footer-box
+    display: flex
+    justify-content: space-between
+    align-items: center
+    color: var(--footer-color)
+    font-size: 18px
+    @media (max-width: 450px)
+      display: block
+    ul
+      display: flex
+      column-gap: 20px
+      list-style: none
+      @media (max-width: 650px)
+        justify-content: flex-end
+      li
+        cursor: pointer
+        transition: .5s
+        &:hover
+          color: var(--main-color)
+/* End Footer */
